@@ -170,7 +170,7 @@
 /* ------------------------------------------------------------- */
 @media (max-width: 768px) {
   input {
-    width: 10%;
+    width: 20%;
   }
   .chooseGrid {
     height: 25em;

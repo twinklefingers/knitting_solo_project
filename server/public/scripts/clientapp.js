@@ -140,6 +140,8 @@ function drawColor() {
 
     window.addEventListener('mousedown', switchMouseState);
     window.addEventListener('mouseup', switchMouseState);
+    window.addEventListener("touchstart", switchMouseState);
+    window.addEventListener("touchend", switchMouseState);
 
     $('#gridCanvas').mouseover(function() {
         setPixelColor(event);
@@ -150,6 +152,7 @@ function drawColor() {
 
     function switchMouseState(event) {
         mousingDown = event.type === 'mousedown';
+        touchingDown = event.type === 'touchstart';
         console.log("swicthMouseState() activated");
     }
 
@@ -158,7 +161,7 @@ function drawColor() {
             var thisPixel = event.target;
             $(thisPixel).addClass(pickedColor);
             console.log("this in setPixelColor(): ", thisPixel);
-        } else if (mousingDown && $(event.target).attr('class').match(/pixel/)) {
+        } else if (mousingDown || touchingDown && $(event.target).attr('class').match(/pixel/)) {
             var thisPixel = event.target;
             $(thisPixel).addClass(pickedColor);
             console.log("this in setPixelColor(): ", thisPixel);
