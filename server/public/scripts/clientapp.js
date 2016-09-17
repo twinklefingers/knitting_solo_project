@@ -21,10 +21,15 @@ var pickedColor = "black";
 //                                                                                  //
 //////////////////////////////////////////////////////////////////////////////////////
 function toggleOptions() {
-    console.log('toggleOptions() triggered');
-    $('.chooseGrid-hide').removeClass('chooseGrid-hide').addClass('chooseGrid');
-    $('.chooseGrid').hide();
-    $('.chooseGrid').slideToggle(1500);
+    // if button class = optionsButton then
+    if ($('#optionsReset').hasClass('optionsButton')) {
+        var audio = document.getElementById("meow");
+        audio.play();
+        console.log('toggleOptions() triggered');
+        $('.chooseGrid-hide').removeClass('chooseGrid-hide').addClass('chooseGrid');
+        $('.chooseGrid').hide();
+        $('.chooseGrid').slideToggle(1500);
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -32,11 +37,6 @@ function toggleOptions() {
 //                           Function to Reset Page                                 //
 //                                                                                  //
 // //////////////////////////////////////////////////////////////////////////////////////
-
-function refreshPage() {
-    window.location.reload();
-}
-
 function printPage() {
     window.print();
 }
@@ -63,7 +63,14 @@ function submitGridSpecs() {
     // ToggleClass to make Create Grid say Reset
     $('.optionsButton').removeClass('optionsButton').addClass('resetButton');
     $('.resetButton').text('Reset').click(function() {
-        window.location.reload();
+        var audio = document.getElementById("hiss");
+        audio.play();
+        audio.volume = 0.2;
+        audio.onended = function() {
+            window.location.reload();
+        }
+        console.log("audio should be playing: ", audio);
+
     });
 
     $('input').val(''); // clear inputs
@@ -81,6 +88,10 @@ function submitGridSpecs() {
 
 
     //if - onclick Submit, input is 200 < # < 1, throw alert
+    if (Grid.sts > 100 || Grid.rows > 100) {
+        alert("Maximum Grid Size is 100x100. \nThe value you entered for either Stitches or Rows was greater than 100. \n\nThis page will now reload.");
+        window.location.reload();
+    }
 }
 
 
@@ -108,7 +119,7 @@ function newGrid(Grid) {
     for (c = 1; c <= Grid.sts; c++) {
         //each inputted row
         for (i; i <= Grid.rows - 1; i++) {
-            $('.pixelCol').append("<div class='pixel' id='pixel" + i + "'onclick='drawColor()'></div>");
+            $('.pixelCol').append("<div class='pixel' id='pixelRow" + (i + 1) + " " + 'pixelCol' + 0 + "'onclick='drawColor()'></div>");
             console.log('row st created');
         }
     }
@@ -140,19 +151,19 @@ function drawColor() {
 
     window.addEventListener('mousedown', switchMouseState);
     window.addEventListener('mouseup', switchMouseState);
-    window.addEventListener("touchstart", switchMouseState);
-    window.addEventListener("touchend", switchMouseState);
 
     $('#gridCanvas').mouseover(function() {
         setPixelColor(event);
     });
     $('#gridCanvas').click(function() {
         setPixelColor(event);
+        var audio = document.getElementsByTagName("audio")[0];
+        audio.play();
+        console.log("audio should be playing: ", audio);
     });
 
     function switchMouseState(event) {
         mousingDown = event.type === 'mousedown';
-        touchingDown = event.type === 'touchstart';
         console.log("swicthMouseState() activated");
     }
 
@@ -161,7 +172,7 @@ function drawColor() {
             var thisPixel = event.target;
             $(thisPixel).addClass(pickedColor);
             console.log("this in setPixelColor(): ", thisPixel);
-        } else if (mousingDown || touchingDown && $(event.target).attr('class').match(/pixel/)) {
+        } else if (mousingDown && $(event.target).attr('class').match(/pixel/)) {
             var thisPixel = event.target;
             $(thisPixel).addClass(pickedColor);
             console.log("this in setPixelColor(): ", thisPixel);
