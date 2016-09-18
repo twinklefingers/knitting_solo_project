@@ -67,9 +67,9 @@ function submitGridSpecs() {
         audio.play();
         audio.volume = 0.2;
         audio.onended = function() {
-            window.location.reload();
-        }
-        console.log("audio should be playing: ", audio);
+                window.location.reload();
+            }
+            // console.log("audio should be playing: ", audio);
 
     });
 
@@ -111,7 +111,7 @@ function newGrid(Grid) {
 
     // logic to establish # of columns containing 1 div each
     for (j; j <= Grid.sts; j++) {
-        $('#gridCanvas').append("<div class='pixelCol' id='pixelCol" + j + "'><div class='pixel' id='pixelCol" + j + " " + 'pixelRow' + 1 + "'onclick='drawColor()'></div></div>");
+        $('#gridCanvas').append("<div class='col' id='pixelCol" + j + "'><div class='pixelInitial' id='pixelCol" + j + " " + 'pixelRow' + 1 + "'onclick='drawColor()'></div></div>");
     }
 
     // this adds divs to each column per the # of inputted rows
@@ -119,7 +119,7 @@ function newGrid(Grid) {
     for (c = 1; c <= Grid.sts; c++) {
         //each inputted row
         for (i; i <= Grid.rows - 1; i++) {
-            $('.pixelCol').append("<div class='pixel' id='pixelRow" + (i + 1) + " " + 'pixelCol' + 0 + "'onclick='drawColor()'></div>");
+            $('.col').append("<div class='pixel' id='pixelRow" + (i + 1) + " " + 'pixelCol' + 0 + "'onclick='drawColor()'></div>");
             console.log('row st created');
         }
     }
@@ -159,7 +159,7 @@ function drawColor() {
         setPixelColor(event);
         var audio = document.getElementsByTagName("audio")[0];
         audio.play();
-        console.log("audio should be playing: ", audio);
+        // console.log("audio should be playing: ", audio);
     });
 
     function switchMouseState(event) {
@@ -172,12 +172,12 @@ function drawColor() {
             var thisPixel = event.target;
             $(thisPixel).removeAttr('class');
             $(thisPixel).addClass('pixel' + " " + pickedColor);
-            console.log("this in setPixelColor(): ", thisPixel);
+            console.log("event.target in setPixelColor() CLICK: ", thisPixel);
         } else if (mousingDown && $(event.target).attr('class').match(/pixel/)) {
             var thisPixel = event.target;
             $(thisPixel).removeAttr('class');
             $(thisPixel).addClass('pixel' + " " + pickedColor);
-            console.log("this in setPixelColor(): ", thisPixel);
+            console.log("event.target setPixelColor() MOUSEDOWN: ", thisPixel);
         }
     }
 }
