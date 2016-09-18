@@ -22,10 +22,10 @@
 
 <body>
     <div class="desktopHeader container-fluid">
-        <div class="col-md-3 col-xs-1">
-            <h1 class="header">Knit Mattern Paker</h1>
+        <div class="col-md-3 col-xs-12">
+            <h1 class="header">Purrfect Knit Patterns</h1>
         </div>
-        <div class="col-md-4 col-xs-1" id="colorPalette">
+        <div class="col-md-4 col-xs-12" id="colorPalette">
             <!-- <small class="pickAColor"><em>  Pick A Color:</em></small> -->
             <div id="color" class="black" onclick="pickColor('black')"> </div>
             <div id="color" class="red" onclick="pickColor('red')"> </div>
@@ -37,11 +37,11 @@
             <div id="color" class="white" onclick="pickColor('white')"> </div>
         </div>
 
-        <div id="yourGrid" class="col-md-2 col-xs-1">
-            <p id="stsByRows" class="userInput">Stitches/Rows: </p>
-            <p id="gauge" class="userInput">Gauge: </p>
+        <div id="yourGrid" class="col-md-2 col-xs-12">
+            <p id="stsByRows" class="userInput">`Stitches/Rows: </p>
+            <p id="gauge" class="userInput">`Gauge: </p>
         </div>
-        <div id="topBarButtons" class="col-md-2 col-xs-1">
+        <div id="topBarButtons" class="col-md-2 col-xs-12">
             <button id="printButton" onclick="printPage()">Print</button>
             <button id="optionsReset" class="optionsButton">Create Grid</button>
         </div>
@@ -57,7 +57,7 @@
         <label for="columns">Stitches:</label>
         <input type="number" min="1" max="200" id="gridStitches" name="gridStitches" />
         <br />
-        <label for="first_name">Rows:</label>
+        <label for="rows">Rows:</label>
         <input type="number" min="1" max="1000" id="gridRows" name="gridRows" />
 
         <h2>Gauge:</h2>
@@ -67,7 +67,7 @@
         <label for="vertical">Vertical:</label>
         <input type="number" min="1" max="50" id="verticalGauge" name="verticalGauge" />
 
-        <button id="submitGrid" onclick="submitGridSpecs()">Submit</button>
+        <button id="submitGrid" onclick="submitGridSpecs()">` Submit ^</button>
     </form>
 
     <audio id="purr">
