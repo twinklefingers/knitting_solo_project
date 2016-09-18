@@ -170,11 +170,13 @@ function drawColor() {
     function setPixelColor(event) {
         if (event.type === 'click' && $(event.target).attr('class').match(/pixel/)) {
             var thisPixel = event.target;
-            $(thisPixel).addClass(pickedColor);
+            $(thisPixel).removeAttr('class');
+            $(thisPixel).addClass('pixel' + " " + pickedColor);
             console.log("this in setPixelColor(): ", thisPixel);
         } else if (mousingDown && $(event.target).attr('class').match(/pixel/)) {
             var thisPixel = event.target;
-            $(thisPixel).addClass(pickedColor);
+            $(thisPixel).removeAttr('class');
+            $(thisPixel).addClass('pixel' + " " + pickedColor);
             console.log("this in setPixelColor(): ", thisPixel);
         }
     }
