@@ -67,9 +67,8 @@ function submitGridSpecs() {
         audio.play();
         audio.volume = 0.2;
         audio.onended = function() {
-                window.location.reload();
-            }
-            // console.log("audio should be playing: ", audio);
+            window.location.reload();
+        }
 
     });
 
@@ -79,7 +78,6 @@ function submitGridSpecs() {
     // append user-defined sts & rows to DOM
     var stsByRows = document.getElementById('stsByRows');
     var gauge = document.getElementById('gauge');
-    // var input = $('yourGrid').html();
     stsByRows.innerHTML = stsByRows.innerHTML + Grid.sts + ' x ' + Grid.rows;
     gauge.innerHTML = gauge.innerHTML + Grid.horizontal + ' x ' + Grid.vertical;
 
@@ -159,12 +157,10 @@ function drawColor() {
         setPixelColor(event);
         var audio = document.getElementsByTagName("audio")[0];
         audio.play();
-        // console.log("audio should be playing: ", audio);
     });
 
     function switchMouseState(event) {
         mousingDown = event.type === 'mousedown';
-        console.log("swicthMouseState() activated");
     }
 
     function setPixelColor(event) {

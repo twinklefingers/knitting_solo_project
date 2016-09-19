@@ -3,12 +3,12 @@
 /* ------------------------------------------------------------- */
 
 @font-face {
-    font-family: ExtraString;
-    src: url('../imgs/ExtraString.ttf');
+  font-family: ExtraString;
+  src: url('../imgs/ExtraString.ttf');
 }
 @font-face {
-    font-family: CatCafe;
-    src: url('../imgs/CatCafe.ttf');
+  font-family: CatCafe;
+  src: url('../imgs/CatCafe.ttf');
 }
 body {
   font-family: CatCafe;
@@ -18,44 +18,44 @@ button, form h2 {
   font-family: ExtraString;
   border-radius: 5px;
   font-size: 1.2em;
-    z-index: 1;
+  z-index: 1;
 }
 input{
   border-radius: 5px;
 }
 
 .black {
-    background-color: rgb(0, 0, 0) !important;
+  background-color: rgb(0, 0, 0) !important;
 }
 .red {
-    background-color: rgb(255, 0, 0) !important;
+  background-color: rgb(255, 0, 0) !important;
 }
 .orange {
-    background-color: rgb(255, 175, 0) !important;
+  background-color: rgb(255, 175, 0) !important;
 }
 .yellow {
-    background-color: rgb(255, 255, 0) !important;
+  background-color: rgb(255, 255, 0) !important;
 }
 .green {
-    background-color: rgb(0, 255, 0) !important;
+  background-color: rgb(0, 255, 0) !important;
 }
 .blue {
-    background-color: rgb(0, 0, 255) !important;
+  background-color: rgb(0, 0, 255) !important;
 }
 .purple {
-    background-color: rgb(138, 43, 226) !important;
+  background-color: rgb(138, 43, 226) !important;
 }
 .white {
-    background-color: rgb(255, 255, 255) !important;
+  background-color: rgb(255, 255, 255) !important;
 }
 .optionsButton {
-    background-color: #7dfe90;
+  background-color: #7dfe90;
 }
 .resetButton {
-    background-color: tomato;
+  background-color: tomato;
 }
 .desktopHeader {
-    display: block;
+  display: block;
 }
 .header {
   font-size: 2em;
@@ -86,84 +86,77 @@ input{
   margin: 5% auto 0;
   border: thin solid magenta;
   background-color: hsla(300,100%,50%, .3);
-
 }
 .chooseGrid-hide {
-    height: 0;
-    width: 0;
-    float: left;
-    opacity: 0;
+  height: 0;
+  width: 0;
+  float: left;
+  opacity: 0;
 }
 .col {
-    display: inline-block;
+  display: inline-block;
 }
 .pixel {
-    margin: 0 auto;
-    border: thin solid black;
-    height: 1.5em;
-    width: 1.5em;
-    background-color: white;
+  margin: 0 auto;
+  border: thin solid black;
+  height: 1.5em;
+  width: 1.5em;
+  background-color: white;
 }
 .pixel:hover {
-    border: 1px solid red;
+  border: 1px solid red;
 }
 #gridCanvas {
-    width: 90%;
-    margin: 0 auto;
-    padding: 5%;
+  width: 90%;
+  margin: 0 auto;
+  padding: 5%;
 
-    position: fixed;
-    height: 85%;
-    width: 100%;
-    left: 50%;
-    bottom: 0%;
-    margin-left: -50%;
+  position: fixed;
+  height: 85%;
+  width: 100%;
+  left: 50%;
+  bottom: 0%;
+  margin-left: -50%;
 
-    background-image: url("../imgs/Cat.jpg");
-    background-size: cover;
-    background-position: center;
-    border: medium solid magenta;
-    border-radius: 5px;
-    overflow-x: scroll;
-    white-space: nowrap;
-    z-index: -1;
+  background-image: url("../imgs/Cat.jpg");
+  background-size: cover;
+  background-position: center;
+  border: medium solid magenta;
+  border-radius: 5px;
+  overflow-x: scroll;
+  white-space: nowrap;
+  z-index: -1;
 }
 #color {
-    border: thin solid black;
-    float: left;
-    height: 100%;
-    width: 12.5%;
-    border-radius: 5px;
+  border: thin solid black;
+  float: left;
+  height: 100%;
+  width: 12.5%;
+  border-radius: 5px;
 }
 #yourGrid {
-  /*margin-top: .1em;*/
   font-size: 1.2em;
 }
+
+/*lesson learned in how to use media queries, from now on: */
+/*mobile first, increasing screen sizes after, only use min-width*/
 
 /* ------------------------------------------------------------- */
 /*                        Desktop Styles                         */
 /* ------------------------------------------------------------- */
 @media (min-width: 768px) {
-
+  .optionsButton, .resetButton {
+    width: 60%;
+  }
   #colorPalette {
-      /*margin: 1% ;*/
       margin-top: 1.5%;
       height: 30px;
-      /*z-index: 0;*/
   }
   #topBarButtons {
     position: absolute;
     top: 0;
     right: 0;
-    /*float: right;*/
     width: 22.5%;
-    /*display: inline;*/
-    /*text-align: center;*/
-  }
-  .optionsButton, .resetButton {
-    /*float: right;*/
-    width: 60%;
-    /*margin-left: 4%;*/
   }
   #printButton {
     width: 35%;
@@ -171,16 +164,10 @@ input{
 }
 
 /* ------------------------------------------------------------- */
-/*                    Collapsing @ 992px wide                    */
+/*                       Collapsing Issues                       */
 /* ------------------------------------------------------------- */
-/*#colorPalette becomes full width at 991px*/
-/*.header wraps at 1120px*/
-/*buttons wrap between 852px and 840px*/
-/*bewteen 514px  and 480px the buttons wrap*/
-/*bewteen 280px  and 240px the buttons wrap*/
 @media (max-width: 1121px) {
   .header {
-    /*text-align: center;*/
     color: pink;
     white-space: nowrap;
   }
@@ -189,11 +176,13 @@ input{
     width: 20em;
     top: 30%;
   }
+  .optionsButton, .resetButton {
+    margin-left: 4%;
+  }
   #colorPalette {
-      height: 50px;
-      width: 100%;
-      display: block;
-      /*z-index: 0;*/
+    height: 50px;
+    width: 100%;
+    display: block;
   }
   #yourGrid {
     text-align: center;
@@ -212,17 +201,12 @@ input{
     position: relative;
     width: 100%;
     margin: 0 auto;
-    /*top: 80%;*/
     font-size: 150%;
   }
   #gridCanvas {
     height: 75%;
   }
-  .optionsButton, .resetButton {
-    /*float: right;*/
-    /*width: 60%;*/
-    margin-left: 4%;
-  }
+
 }
 
 /* ------------------------------------------------------------- */
@@ -234,13 +218,8 @@ input{
   }
   .header {
     color:blue;
-    /*line-height:2em;*/
-    /*white-space: nowrap;*/
-    /*margin-bottom: 0;*/
-    /*text-decoration: underline;*/
   }
   .optionsButton, .resetButton {
-    /*float: right;*/
     width: 60%;
     margin-left: 2%;
   }
@@ -272,16 +251,16 @@ input{
 /* ------------------------------------------------------------- */
 
 @media print {
-    .chooseGrid, #topBarButtons, #colorPalette {
-        display: none;
-    }
-    #yourGrid {
-      text-align: center;
-      width: 100%;
-      padding: 1%;
-    }
-    #yourGrid p {
-      display: inline;
-      margin-right: 10%;
-    }
+  .chooseGrid, #topBarButtons, #colorPalette {
+    display: none;
+  }
+  #yourGrid {
+    text-align: center;
+    width: 100%;
+    padding: 1%;
+  }
+  #yourGrid p {
+    display: inline;
+    margin-right: 10%;
+  }
 }
