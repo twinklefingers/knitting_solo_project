@@ -79,7 +79,11 @@ function submitGridSpecs() {
     var stsByRows = document.getElementById('stsByRows');
     var gauge = document.getElementById('gauge');
     stsByRows.innerHTML = stsByRows.innerHTML + Grid.sts + ' x ' + Grid.rows;
+<<<<<<< HEAD
     // gauge.innerHTML = gauge.innerHTML + Grid.horizontal + ' x ' + Grid.vertical;
+=======
+    gauge.innerHTML = gauge.innerHTML + Grid.horizontal + ' x ' + Grid.vertical;
+>>>>>>> 50008cdff44bd3bd6aa1a09c1b87f9f3a981c2c2
 
     newGrid(Grid); // must be placed after var assignments
     console.log("Grid: ", Grid);
